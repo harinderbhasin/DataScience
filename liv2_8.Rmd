@@ -1,0 +1,22 @@
+---
+title: "live2.8"
+author: "Harry Bhasin"
+date: "June 13, 2016"
+output:
+  html_document:
+  keep_md: true
+---
+
+
+# The suumary function shows the Min, Max, Median, Mean, 1st and 3rd quardrants
+```{r setup, include=FALSE}
+summary(stackloss)
+```
+# The str function showw the number of observations of all the 4 variables
+```{r}
+str(stackloss)
+```
+# The plot function plots all the 21 observation of 4 variables 
+```{r}
+plot(stackloss)
+```

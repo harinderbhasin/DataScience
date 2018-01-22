@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww22280\viewh16940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Mini Project 4\
+# Question 2\
+\
+\
+import xml.etree.ElementTree as ET\
+import pandas as pd\
+from statistics import mean\
+\
+\
+# read xml file into Python\
+filename='/Users/pbyrd/anaconda/Data/Baseball/baseball_salaries_2003.xml'\
+root = ET.parse(filename).getroot()\
+\
+# seperate data into positions\
+catcher = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Catcher']\
+firstbase = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' First Baseman']\
+outfielder = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Outfielder']\
+pitcher = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Pitcher']\
+secondbase = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Second Baseman']\
+shortstop = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Shortstop']\
+thirdbase = [playerdata for playerdata in root.findall('playerdata') if playerdata.findtext('Position') == ' Third Baseman']\
+\
+\
+# define a function to determine the mean salary for each position\
+def avg_salary(position, filename):\
+    salaryvector = []\
+    for playerdata in filename:\
+        salary = int(playerdata.findtext('Salary'))\
+        salaryvector.append(salary)\
+    avg_salary = mean(salaryvector)\
+    res = print(position, round(avg_salary,2))\
+    return res\
+\
+\
+# run the function for each position\
+avg_salary('outfielder',outfielder)\
+avg_salary('firstbase',firstbase)\
+avg_salary('shortstop',shortstop)\
+avg_salary('thirdbase',thirdbase)\
+avg_salary('pitcher',pitcher)\
+avg_salary('secondbase',secondbase)\
+avg_salary('catcher',catcher)\
+\
+# sort the results\
+#res.sort(['Salary'], ascending=False)}

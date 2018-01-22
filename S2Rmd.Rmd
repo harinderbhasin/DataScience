@@ -1,0 +1,67 @@
+---
+title: "S2Rmd"
+author: "Harry Bhasin"
+date: "May 20, 2016"
+output:
+  html_document:
+    Keep_md: true
+---
+# Introduction
+This R markdown gives the code and output for three exercises from the week 1 live session.
+
+# Specifications
+  * Exercise 1: Calculate log and square-root
+  * Exercise 2: Create a vector of 15 standard normal random variables and calculate its mean and SD
+  * Exercise 3: Use the values of given two vectors and calculate the scatterplot, BMI, and mean of the weight.
+```{r}
+# the log of a positive number (x)
+log(10)
+
+# the default base of a log function is e (natural log)
+log10(10)
+
+# calculate log of previous number with different base with b being the base,
+log(10, base = 3)
+
+# log of a negative number is undefined because if y=logb(x) log(-10)
+
+# x = b^y and since b is a positive number, x must be positive square-root of a positive number
+sqrt(16)
+
+# create a vector of 15 standard normal random variables
+vector1 <- rnorm(15)
+
+# calculate its mean
+mean(vector1)
+
+# calculate its SD
+sd(vector1)
+
+# change the mean to 10 and the SD to 2 and recalculate the vector of
+# 15 random variables. calculate its mean and SD
+vector1 <- rnorm(15, mean = 10, sd = 2)
+mean(vector1)
+sd(vector1)
+
+# the means and sd are not exactly the same as specified because
+# (?????)
+
+# given two vectors
+weight <- c(60, 72, 57, 90, 95, 72)
+height <- c(1.80, 1.85, 1.72, 1.90, 1.74, 1.91)
+
+# create a scatterplot
+plot(height, weight, xlab = "Height", ylab = "Weight")
+
+# calculate BMI
+BMI <- weight / (height * height)
+
+# calculate weight mean
+mean(weight)
+
+# subtract mean from each value of weight
+weight - mean(weight)
+
+# sum the result
+sum (weight - mean(weight))
+```

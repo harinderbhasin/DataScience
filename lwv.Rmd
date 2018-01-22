@@ -1,0 +1,30 @@
+---
+title: "HomeWork8"
+author: "Harry Bhasin"
+date: "July 13, 2016"
+output:
+  html_document:
+    keep_md: true
+---
+```{r}
+setwd("C:/Harry/Data_Science/SMU/MSDS_6306_4033/Hwrk8")
+lwvdata <- read.csv("LWV_Data.csv", header = TRUE)
+```
+
+# According to the provided information only a small portion of the population had been sampled. As shown in the histogram for the sampled data, very small portion of the entire population represented those for sampling. Therefore, the results had been disappointing.
+
+# A yet another sampling would be to group the samples by the (i) zip, (ii) Category, and by (iii) year. With this set of samples majority of the population will be represented and provide more randomness. Please see the histogram for zip and year.
+
+```{r}
+summary(lwvdata)
+#
+par(mfrow = c(2, 3))
+# Samples taken
+hist(lwvdata$post)
+hist(lwvdata$flyer)
+hist(lwvdata$control)
+
+# Proposed samples
+hist(lwvdata$zip)
+hist(lwvdata$byear)
+```
